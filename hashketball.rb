@@ -177,16 +177,27 @@ def player_numbers(team_name)
 end
 
 def player_stats(player_name)
-  game_hash.each do |location, team_data|
-    team_data[:players].each do |data_item|
-      if data_item[:player_name] == player_name
-        return data_item.dup.tap do |player_stats|
-          player_stats.delete(:player_name)
+  player_stats = {}
+  game_hash.each do |key, values|
+    values.each do |descriptors, data|
+      if descriptors == :players
+        data.each do |player|
+          if player[:player_name] == player_name
+            player_stats[:number] = player[:number]
+            player_stats[:shoe] = player[:shoe]
+            player_stats[:points] = player[:points]
+            player_stats[:rebounds] = player[:rebounds]
+            player_stats[:assists] = player[:assists]
+            player_stats[:steals] = player[:steals]
+            player_stats[:blocks] = player[:blocks]
+            player_stats[:slam_dunks] = player[:slam_dunks]
+          end
         end
       end
     end
   end
-end
+  player_stats
+end  
 
 def big_shoe_rebounds
   big_shoe = 0
