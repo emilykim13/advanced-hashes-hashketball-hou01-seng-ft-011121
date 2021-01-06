@@ -176,7 +176,7 @@ def player_numbers(team_name)
     jersey_numbers
 end
 
-def player_stats(player_name)
+def player_stats(name)
   player_hash = {}
   game_hash = game_hash()
   game_hash.each do |place, team| 
