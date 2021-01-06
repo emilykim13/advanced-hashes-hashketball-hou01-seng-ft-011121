@@ -181,7 +181,7 @@ end
 # pry not working?
 # tried and failed :player_stats[:xxxx] list 
 # tried and failed .delete and return player 
-
+# .delete/return should work?
 def player_stats(player)
   game_hash.each{|home_away, keys|
     keys[:players].each{|name|
