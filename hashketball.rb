@@ -177,15 +177,18 @@ def player_numbers(team_name)
 end
 
 def player_stats(player_name)
-  game_hash.values.each do |team_info|
-    team_info[:players].each do |player|
-      if player.has_value?(player_name)
-         player.delete(:player_name) 
-         return player
+  game_hash.each do |location, team|
+    team.each do |attribute, data|
+     if attribute == :players
+       data.each do |player, stats|
+        if player == player_name
+          return stats
+        end
+       end
       end
     end
   end
-end 
+end
 
 def big_shoe_rebounds
   big_shoe = 0
