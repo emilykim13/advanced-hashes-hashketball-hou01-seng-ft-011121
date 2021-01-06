@@ -178,7 +178,9 @@ end
 
 
 # player_stats not returning all player stats 
-# tried and failed :name 
+# pry not working?
+# tried and failed :player_stats[:xxxx] list 
+# tried and failed 
 def player_stats(player)
   game_hash.each{|home_away, keys|
     keys[:players].each{|name|
