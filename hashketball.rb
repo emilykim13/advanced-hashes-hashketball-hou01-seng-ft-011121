@@ -176,6 +176,9 @@ def player_numbers(team_name)
     jersey_numbers
 end
 
+
+# player_stats not returning all player stats 
+# tried and failed :name 
 def player_stats(player)
   game_hash.each{|home_away, keys|
     keys[:players].each{|name|
