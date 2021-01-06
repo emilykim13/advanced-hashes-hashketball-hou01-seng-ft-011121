@@ -176,18 +176,14 @@ def player_numbers(team_name)
     jersey_numbers
 end
 
-def player_stats(player_name)
-  game_hash.each do |location, team|
-    team.each do |attribute, data|
-     if attribute == :players
-       data.each do |player, stats|
-        if player == player_name
-          return stats
-        end
-       end
+def player_stats(player)
+  game_hash.each{|home_away, keys|
+    keys[:players].each{|name|
+      if name[:player_name] == player
+        return name
       end
-    end
-  end
+    }
+  }
 end
 
 def big_shoe_rebounds
